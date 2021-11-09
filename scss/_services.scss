@@ -1,0 +1,35 @@
+@use 'globals' as *;
+
+.services {
+    display: flex;
+    width: 80%;
+    margin: 4rem auto;
+    box-shadow: $boxShadow;
+    background: $light-bg;
+    border: .1rem solid rgba(0,0,0,.1);
+
+    .service {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        text-align: center;
+        padding: 1.5rem;
+        i {
+            font-size: 5rem;
+            color: $orange;
+        }
+        h3 {
+            font-size: $fs-medium;
+            font-weight: 900;
+        }
+        p {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+@media (max-width:720px) {
+    .services {
+        flex-direction: column;
+    }
+}

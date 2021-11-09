@@ -1,0 +1,103 @@
+@use "globals" as *;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: $fs-small;
+    box-shadow: $boxShadow;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+    &__logo {
+        font-size: $fs-medium;
+    }
+
+    &__nav {
+            // aligining mobile menu links
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        width: 75%;
+        z-index: 9;
+        top: 7rem;
+        box-shadow: $boxShadow;
+        background: white;
+
+            // styling indivdual mobile nav links
+        a {
+            padding: 2rem;
+            text-align: center;
+
+            &:hover {
+                background-color: rgba(255, 99, 43, 0.747);
+                color: white;
+            }
+        }
+
+        // hiding nav
+        left: 110%;   
+        // appearing nav 
+        &.active {
+            left: 12%;
+
+        }
+        
+    }
+
+    &__icons {
+        display: flex;
+        align-items: center;
+            // General icon styles
+        i {
+            font-size: $fs-medium;
+            margin: 0 .5rem;
+            cursor: pointer;
+
+            &:hover {
+                color: $orange;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    .header {
+        padding: 2rem;
+        margin: 0 auto;
+
+        &__nav {
+            opacity: 1;
+            width: 50%;
+                // Desktop Nav
+            flex-direction: row;
+                // resetting position absolute
+            position: static;
+            box-shadow: none;
+
+            a {
+                padding: 0;
+                    // space between links
+                margin: 0 .5rem;
+                    // hover properties
+                &:hover {
+                    background-color: white;
+                    color: $orange;
+                }
+            }
+        }
+
+            // hiding hamburger on desktop view
+        #hamburger {
+            opacity: 0;
+        }
+
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .header {
+        padding: 2rem 7rem;
+    }
+}

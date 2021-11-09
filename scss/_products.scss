@@ -1,0 +1,104 @@
+@use "globals" as *;
+
+.products {
+        // Wrapper
+    max-width: 65rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+
+    .products-container {
+            // Responsive grid layout
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+        grid-gap: 1rem;
+        .product {
+            background: $light-bg;
+            padding: 3rem;
+            box-shadow: $boxShadow;
+            border: .1rem solid rgba(0,0,0,.1);
+            transition: 400ms ease-in-out;
+            position: relative;
+            .icons {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                position: absolute;
+                left: 5%;
+                top: 5%;
+                opacity: 0;
+                i {
+                    padding: 5px;
+                    border: 1px solid $black;
+                    font-size: $fs-medium;
+                    &:hover {
+                        cursor: pointer;
+                        color: $orange;
+                    }
+                }
+            }
+            &:hover {
+                .icons {
+                    opacity: 1;
+                }
+                .product-image {
+                    transform: scale(1.05);
+                }
+            }
+            
+
+            .product-info {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                text-align: center;
+
+                .product-image {
+                    padding: 1rem;
+                    margin-bottom: 2rem;
+                    img {
+                        transform: rotate(-35deg);
+                        width: 100%;
+                    }
+                }
+
+                h2 {
+                    font-size: $fs-small;
+                    font-weight: bolder;
+
+                }
+
+                .price {
+                    font-size: $fs-medium;
+                    font-weight: bolder;
+                    span {
+                        margin-left: 4px;
+                        font-size: 1rem;
+                        text-decoration: line-through;
+                        color: rgb(177, 74, 43);
+                    }
+                }
+
+                .rating {
+                    font-size: 1.3rem;
+                    i {
+                        color: rgb(253, 67, 43);
+                    }
+                }
+                .btn {
+                    border: 3px solid $black;
+                    border-radius: 5px;
+                    width: 80%;
+                    margin: 0 auto;
+                    padding: .8rem 0;
+                    font-size: 1.3rem;
+                    &:hover {
+                        background-color: $orange;
+                        color: white;
+                        letter-spacing: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
